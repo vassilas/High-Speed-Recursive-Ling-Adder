@@ -1,0 +1,8 @@
+alib-52/
+default.svf
+command.log
+SAED_LIB/
+*.log
+*.mr
+*.pvl
+*.syn

@@ -1,0 +1,231 @@
+\begin{appendices}
+
+
+
+
+\section{Παράρτημα - Κόμβοι των αθροιστών}
+\label{appendix:Node_modules}
+\begin{table}[H]
+\centering
+    \begin{tabularx}{\textwidth}{ | c | X | } 
+
+    \hline
+    Symbol & Function\\
+    \hline
+    
+    % ----------------------------------------------------
+    \_gpx &
+    \begin{tabular}{@{}c@{}}
+        $g_i = a_i * b_i$\\
+        $p_i = a_i + b_i$\\
+        $x_i = a_i \oplus b_i $
+    \end{tabular}\\\hline
+    
+    % ----------------------------------------------------
+    \_4g2p\_R4 &
+    \begin{tabular}{@{}c@{}}
+        $R = g_3 + g_2 + p_1g_1 + p_1p_0g_0$
+    \end{tabular}\\\hline
+    
+    % ----------------------------------------------------
+    \_4p\_Q4 &
+    \begin{tabular}{@{}c@{}}
+        $Q = p_3 p_2 p_1 p_0$
+    \end{tabular}\\\hline
+    
+    % ----------------------------------------------------
+    \_4R2Q\_R4 &
+    \begin{tabular}{@{}c@{}}
+        $R = R_3 + R_2 + Q_1R_1 + Q_1Q_0R_0$
+    \end{tabular}\\\hline
+    
+    % ----------------------------------------------------
+    \_D16 &
+    \begin{tabular}{@{}c@{}}
+        $D = p_1R + p_0Q$
+    \end{tabular}\\\hline
+    
+    % ----------------------------------------------------
+    \_Jsum &
+    \begin{tabular}{@{}c@{}}
+        $sum = R\ ?\ x\oplus D\ :\ x$
+    \end{tabular}\\\hline
+    
+    % ----------------------------------------------------
+    \_1R4Q\_Q4 &
+    \begin{tabular}{@{}c@{}}
+        $Q = Q_3 Q_2 Q_1 (Q_0 + R)$
+    \end{tabular}\\\hline
+    
+    % ----------------------------------------------------
+    \_D64\_1 &
+    \begin{tabular}{@{}c@{}}
+        $D = g_1 + p_2g_0 + p_2p_1p_0$
+    \end{tabular}\\\hline
+    
+    % ----------------------------------------------------
+    \_D64\_2 &
+    \begin{tabular}{@{}c@{}}
+        $D = D (R + Q)$
+    \end{tabular}\\\hline
+    
+    % ----------------------------------------------------
+    \_2g\_R2 &
+    \begin{tabular}{@{}c@{}}
+        $R = g_1 + g_0$
+    \end{tabular}\\\hline
+    
+    % ----------------------------------------------------
+    \_2p\_Q2 &
+    \begin{tabular}{@{}c@{}}
+        $Q = p_1p_0$
+    \end{tabular}\\\hline
+    
+    % ----------------------------------------------------
+    \_4g2p\_H4 &
+    \begin{tabular}{@{}c@{}}
+        $H = g_3 + g_2 + p_1g_1 + p_1p_0g_0$
+    \end{tabular}\\\hline
+    
+    % ----------------------------------------------------
+    \_P4 &
+    \begin{tabular}{@{}c@{}}
+        $P = p_3p_2p_1p_0$
+    \end{tabular}\\\hline
+    
+    % ----------------------------------------------------
+    \_4G3P\_G4 &
+    \begin{tabular}{@{}c@{}}
+        $G = G_3 + P_2G_2 + P_2P_1G_1 + P_2P_1P_0G_0$
+    \end{tabular}\\\hline
+    
+    % ----------------------------------------------------
+    \_Lsum &
+    \begin{tabular}{@{}c@{}}
+        $sum = H\ ?\ x \oplus p\ :\ x$
+    \end{tabular}\\\hline
+    
+    % ----------------------------------------------------
+    \_2g\_H2 &
+    \begin{tabular}{@{}c@{}}
+        $H = g_1 + g_0$
+    \end{tabular}\\\hline
+    
+    % ----------------------------------------------------
+    \_2p\_P2 &
+    \begin{tabular}{@{}c@{}}
+        $P = p_1 p_0$
+    \end{tabular}\\\hline
+    
+    % ----------------------------------------------------
+    \_Psum &
+    \begin{tabular}{@{}c@{}}
+        $sum = G \oplus x$
+    \end{tabular}\\\hline
+    
+    % ----------------------------------------------------
+    \_2g1p\_G2 &
+    \begin{tabular}{@{}c@{}}
+        $G = g_1 + p*g_0$
+    \end{tabular}\\\hline
+    
+    % ----------------------------------------------------
+    \_2R1Q\_R2 &
+    \begin{tabular}{@{}c@{}}
+        $R = R_1 + Q*R_0$
+    \end{tabular}\\\hline
+    
+    
+    \end{tabularx}
+    \caption{Περιγραφή των κόμβων του αναπτύχθηκαν}
+    \label{table:node_modules}
+\end{table}
+
+
+% \subsection{Schematics}
+
+% \thispagestyle{empty}
+
+% \begin{figure}[H]
+%     \centering
+%     %\includegraphics[width=\textwidth]{Brent_Kung_Prefix.png}
+%     \includegraphics[angle=90,scale=0.5]{Pictures/J8_Adder.png}
+%     \caption{Jackson 8-bit $2^n-1$ Adder}
+%     \label{Schematic:Jackson_8}
+% \end{figure}
+
+
+
+
+
+
+
+
+
+\clearpage
+\section{Παράρτημα - Script τοπογραφικής εκτέλεσης}
+\label{appendix:scripts}
+
+\begin{minted}
+[
+framesep=2mm,
+baselinestretch=1,
+fontsize=\footnotesize,
+linenos
+]{text}
+
+create_mw_lib -technology $techfile -mw_reference_library $ref_lib SAED_LIB
+open_mw_lib SAED_LIB
+set_tlu_plus_files -max_tluplus $tlupmax \
+                   -min_tluplus $tlupmin 
+                   -tech2itf_map $tech2itf
+
+analyze -format verilog {../src/node_Adders/node_modules.v}
+
+set all_modules { _gpx _4g2p_R4 _4p_Q4 _4R2Q_R4 _D16 _Jsum _1R4Q_Q4 \
+                  _D64_1 _D64_2 _2g_R2 _2p_Q2 _4g2p_H4 _P4 _4G3P_G4 \
+                  _Lsum _2g_H2 _Psum _2g1p_G2 _Psum_sparse2 _Lsum_sparse2 \
+                  _Jsum_sparse2 _Psum_sparse4 _Lsum_sparse4 _Jsum_sparse4 } 
+
+foreach module $all_modules {
+    elaborate $module
+    current_design $module
+    link
+    compile_ultra
+    report_timing > reports/$module.log
+    report_area >> reports/$module.log
+    set_dont_touch $module
+}
+
+set all_adders { P8_node_adder P16_node_adder P32_node_adder P64_node_adder \
+                 L8_node_adder L16_node_adder L32_node_adder L64_node_adder \
+                 J8_node_adder J16_node_adder J32_node_adder J64_node_adder }
+foreach adder $all_adders {
+
+    read_verilog ../src/node_Adders/$adder.v
+    elaborate $adder
+    current_design $adder
+    link
+    
+    set_driving_cell -lib_cell DFFX1_RVT -pin Q [all_inputs]
+    set_load [expr [load_of saed32rvt_tt1p05v25c/DFFX1_RVT/D]] [all_outputs]
+    compile_ultra
+    
+    compile_ultra -incremental
+
+    report_timing -significant 3 > reports/$adder.log
+    report_area -hierarchy >> reports/$adder.log
+    report_power >> reports/$adder.log
+}
+
+quit
+
+\end{minted}
+
+
+
+
+
+
+
+\end{appendices}

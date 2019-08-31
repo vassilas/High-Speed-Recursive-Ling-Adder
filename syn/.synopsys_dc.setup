@@ -1,0 +1,8 @@
+set search_path ". ../lib/SAED32/libraries"
+set target_library "../lib/SAED32/libraries/saed32rvt_tt1p05v25c.db"
+set link_library "$target_library"
+set techfile "../lib/SAED32/libraries/saed32nm_1p9m_mw.tf"
+set ref_lib "../lib/SAED32/libraries/saed32nm_rvt_1p9m"
+set tlupmax "../lib/SAED32/libraries/saed32nm_1p9m_Cmax.tluplus"
+set tlupmin "../lib/SAED32/libraries/saed32nm_1p9m_Cmin.tluplus"
+set tech2itf "../lib/SAED32/libraries/saed32nm_tf_itf_tluplus.map"

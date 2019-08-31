@@ -1,0 +1,39 @@
+\section{Αποδειξεις}
+%\begin{multicols}{2}[\section{Αποδειξεις}]
+
+\subsection{Jackson recursion}
+\begin{equation}
+\begin{split}
+    G_{4:0} &= g_4 + p_4    g_3 + p_4p_3g_2 + p_4p_3p_2g_1 + p_4p_3p_2p_1g_0 \\\
+            &= p_4\bigg[g_4 + g_3 + p_3g_2 + p_3p_2g_1 + p_3p_2p_1g_0\bigg] \\
+            &= p_4\bigg[g_4 + p_3\Big[ g_3 + g_2 + p_2g_1 + p_2p_1g_0\Big]\bigg] \\
+            &= p_4g_4 + p_4p_3\bigg[ g_3 + g_2 + p_2g_1 + p_2p_1g_0\bigg] \\
+            &= g_4 + p_4p_3\bigg[ g_3 + g_2 + p_2g_1 + p_2p_1g_0\bigg] \\
+            \text{\textcolor{red}{Note}}&: \textcolor{red}{x+y*z=(x+y)*(x+z)}   \\
+            &=\bigg[g_4 + p_4p_3\bigg]\bigg[g_4 + g_3 + g_2 + p_2g_1 + p_2p_1g_0\bigg] \\
+            &= p_4\bigg[g_4 + p_3\Big[ g_3 + g_2 + p_2g_1 + p_2p_1g_0 \Big]\bigg] \\
+            &= p_4\bigg[g_4 + p_3\Big[ g_3 + p_2( g_2 + g_1 + p_1g_0 )\Big]\bigg] \\
+            &= p_4\bigg[g_4 + p_3g_3 + p_3p_2\Big[ g_2 + g_1 + p_1g_0 \Big]\bigg] \\  
+            &= p_4\bigg[g_4 + \Big[ p_3g_3 + p_3p_2 \Big]\Big[ p_3g_3 + g_2 + g_1 + p_1g_0 \Big]    \bigg] \\
+            &= p_4g_4 + p_4\Big[ g_3 + p_3p_2 \Big]\Big[ g_3 + g_2 + g_1 + p_1g_0 \Big]  \\
+            &= g_4 + \Big[ p_4g_3 + p_4p_3p_2 \Big]\Big[ g_3 + g_2 + g_1 + p_1g_0 \Big]  \\ 
+            &= \Big[g_4 +  p_4g_3 + p_4p_3p_2 \Big]\Big[ g_4 + g_3 + g_2 + g_1 + p_1g_0 \Big]
+\end{split}
+\end{equation}
+
+\subsection{Jackson D}
+\begin{equation}
+\begin{split}
+    D_{i:k} &= G_{j:k} + P_{j:k}\\
+            &= G_{j:k+1} + P_{j:k-1}g_k  + P_{j:k}\\
+            &= G_{j:k+1} + P_{j:k-1}g_k  + P_{j:k-1}p_k\\
+            &= G_{j:k+1} + P_{j:k-1}(g_k + p_k)\\
+            &= G_{j:k+1} + P_{j:k-1}( a_kb_k + a_k + b_k )\\
+            &= G_{j:k+1} + P_{j:k-1}( a_k(b_k + 1) + b_k )\\
+            &= G_{j:k+1} + P_{j:k-1}( a_k + b_k )\\
+            &= G_{j:k+1} + P_{j:k-1}p_k \\
+            &= G_{j:k+1} + P_{j:k}
+\end{split}
+\end{equation}
+
+%\end{multicols}
