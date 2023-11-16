@@ -1,17 +1,32 @@
---------------------------------------------------------------------------------
-#               High speed recursive Ling mod 2^n-1 binary Adder               #
---------------------------------------------------------------------------------
+
+# High speed recursive Ling mod 2^n-1 binary Adder
+
+In this work, a new 
+implementation of modulo adders 2n − 1 is presended. Techniques and architectures that have been proposed in the past, 
+either directly concern the balance adders, or more generally the adders, combine to develop the new design. 
+Specifically and comprehensively,  models proposed by Jackson and Talwar were put in use, concerning the
+generalization of the factorization introduced by H. Ling. Applying these logic functions to
+a topology that favors prefix levels, and the final result was achieved. The adders that
+developed were compared with the most efficient topologies in terms of speed, area and consumption
+energy, and the results are quite promising. In particular in theoretical specifications the delay of
+of new adders is noticeably smaller.
+
+<div align="center">
+    <img src="https://raw.githubusercontent.com/vassilas/THESIS_DOC/master/Pictures/2%5E8-1_new_structure.png" width=40% />
+</div>
+
+link for the documentation in greek ( [PDF link](https://github.com/vassilas/High-Speed-Recursive-Ling-Adder/blob/master/doc/Thesis.pdf) )
 
 
 
 
 
---------------------------------------------------------------------------------
+
 ## Tools
---------------------------------------------------------------------------------
-    1. HDL Simulator (Modelsim , VCS )
-    2. Design Compiler from Synopsys
-    3. Python fot code generation
+1. HDL Simulator (Modelsim , VCS )
+2. Design Compiler from Synopsys
+3. Python for Verilog code generation
+4. Verilog as HDL
 
 
     
@@ -49,43 +64,37 @@
         
         
              
---------------------------------------------------------------------------------
+
 ## Documentation
---------------------------------------------------------------------------------
-    
-    Documentation is writed using LaTeX online Tools, such as ShareLatex 
-    and Overleaf. To regenerate or edit its contents upload the folder doc/ 
-    to one of these online editors at one of your own new project and 
-    compile with PDFLaTex.
-
+- Documentation is writed using LaTeX --> [LINK](https://github.com/vassilas/THESIS_DOC)
+- link for the documentation in greek ([PDF link](https://github.com/vassilas/High-Speed-Recursive-Ling-Adder/blob/master/doc/Thesis.pdf))
 
 
     
     
---------------------------------------------------------------------------------
+
 ## Simulation
---------------------------------------------------------------------------------
-    How to run simulation:
-    *NOTE : Simulation Makefile is build for VCS Simulator
-    
-    run:
-    > cd sim/
-    > make all_node
-    > make all_node_sparse2
-    > make all_node_sparse4
-    
-    *NOTE : Edit VCS_FLAGS variable in Makefile if you want other warning
-            reports or any other parameter.
-            Currently is set to report any kind of error or warning
-            ( -timescale is not needed )
+How to run simulation:
+*NOTE : Simulation Makefile is build for VCS Simulator
+
+run:
+```SH
+> cd sim/
+> make all_node
+> make all_node_sparse2
+> make all_node_sparse4
+```
+*NOTE : Edit VCS_FLAGS variable in Makefile if you want other warning
+        reports or any other parameter.
+        Currently is set to report any kind of error or warning
+        ( -timescale is not needed )
 
             
             
             
             
---------------------------------------------------------------------------------
+
 ## Code Generator with python
---------------------------------------------------------------------------------
     User need to edit the configuration files or make a new one
     
     How to run:
@@ -131,14 +140,14 @@
 
 
 
-            
---------------------------------------------------------------------------------
+        
 ## Synthesis
---------------------------------------------------------------------------------
-    *NOTE : You need PROJECT_DIR/lib/<cell library> files to install
-            and reconfigure the PROJECT_DIR/syn/.synopsys_dc.setup file.
-            /lib directory in not contained.
-    
-    RUN:
-    > cd syn/
-    > make sparse_topo
+*NOTE : You need PROJECT_DIR/lib/<cell library> files to install
+        and reconfigure the PROJECT_DIR/syn/.synopsys_dc.setup file.
+        /lib directory in not contained.
+
+RUN:
+```SH
+> cd syn/
+> make sparse_topo
+```
